@@ -68,9 +68,9 @@ namespace NeuralNetwork
             {
                 for(int inNode = 0; inNode < inNodes; inNode++)
                 {
-                    gradientWeights[node, inNode] -= nodeValues[node] * inputs[inNode];
+                    gradientWeights[node, inNode] += nodeValues[node] * inputs[inNode];
                 }
-                gradientBiases[node] -= nodeValues[node];
+                gradientBiases[node] += nodeValues[node];
             }
         }
 
@@ -78,11 +78,11 @@ namespace NeuralNetwork
         {
             for (int node = 0; node < outNodes; node++)
             {
-                biases[node] += gradientBiases[node] * learnRate;
+                biases[node] -= gradientBiases[node] * learnRate;
 
                 for (int inp = 0; inp < inNodes; inp++)
                 {
-                    weights[node, inp] += gradientWeights[node, inp] * learnRate;
+                    weights[node, inp] -= gradientWeights[node, inp] * learnRate;
                 }
             }
         }

@@ -49,7 +49,7 @@ namespace NeuralNetwork
                 {
                     newNodeValues[i] += oldNode.weights[j, i] * oldNodeValues[j];
                 }
-                newNodeValues[i] *= Layer.ActivationDerivative(current.activations[i]);
+                newNodeValues[i] *= Layer.ActivationDerivative(current.weightedInputs[i]);
             }
             return newNodeValues;
         }
