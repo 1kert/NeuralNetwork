@@ -9,7 +9,7 @@ namespace NeuralNetwork
     internal class Network
     {
         readonly Layer[] layers;
-        double learnRate;
+        double learnRate = 0.25;
 
         public Network(params int[] comp)
         {
