@@ -26,5 +26,16 @@ namespace NeuralNetwork
             this.inputs = inputs;
             this.expected = expected;
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new();
+            sb.Append($"[ {inputs[0]}");
+            for (int i = 1; i < inputs.Length; i++) sb.Append(", " + inputs[i]);
+            sb.Append($" ], [ {expected[0]}");
+            for (int i = 1; i < expected.Length; i++) sb.Append(", " + expected[i]);
+            sb.Append(" ]");
+            return sb.ToString();
+        }
     }
 }
